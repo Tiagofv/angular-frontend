@@ -1,0 +1,49 @@
+
+<div class="sidenav">
+         <div class="login-main-text">
+            <h2>Entre<br> para conversar!</h2>
+            <p>Faça login ou cadastre-se.</p>
+         </div>
+      </div>
+      <div class="main">
+         <div class="col-md-6 col-sm-12">
+            <div class="login-form">
+               <form [formGroup]="formLogin" (ngSubmit)="submit()">
+                  <div class="form-group">
+                     <label>E-mail</label>
+                     <input type="text" class="form-control" placeholder="E-mail"
+                     formControlName="email"
+                     
+                     />
+                     <span class="text-danger"
+                     *ngIf="(loginFormControl.email.touched ) && loginFormControl.email.errors?.required">
+                     Email é obrigatório
+                 </span>
+                 <span class="text-danger"
+                     *ngIf="loginFormControl.email.touched && loginFormControl.email.errors?.email">
+                     Digite um endereço de e-mail válido
+                 </span>
+                  </div>
+                  <div class="form-group">
+                     <label>Senha</label>
+                     <input type="password" class="form-control" placeholder="Password"
+                     formControlName="password"
+                     />
+                     <span class="text-danger"
+                     *ngIf="(loginFormControl.password.touched ) && loginFormControl.password.errors?.required">
+                     Digite uma senha
+                 </span>
+                  </div>
+                  <span class="text-danger"
+                  *ngIf="error">
+                  Credenciais inválidas
+              </span>
+
+                  <button type="submit" class="btn btn-black">Login</button>
+                  <a href="" routerLink="cadastrar">
+                     <button  class="btn btn-secondary">Cadastrar</button>
+                  </a>
+               </form>
+            </div>
+         </div>
+      </div>

@@ -1,0 +1,76 @@
+
+
+<div class="container">
+<div class="card bg-light">
+<article class="card-body mx-auto" style="max-width: 400px;">
+	<h4 class="card-title mt-3 text-center">Criar Conta</h4>
+	<form [formGroup]="formRegister" (ngSubmit)="submit()">
+	<div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		 </div>
+        <input name="" class="form-control" placeholder="Nome" type="text" formControlName="name">
+        
+    </div> <!-- form-group// -->
+    <span class="text-danger"
+                 *ngIf="(loginFormControl.name.touched ) && loginFormControl.name.errors?.required">
+                 Nome é obrigatório
+             </span>
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+		 </div>
+        <input name="" class="form-control" placeholder="Email " type="email" formControlName="email">
+    </div> <!-- form-group// -->
+    <span class="text-danger"
+                 *ngIf="(loginFormControl.email.touched ) && loginFormControl.email.errors?.required">
+                 Email é obrigatório
+             </span>
+             <span class="text-danger"
+                 *ngIf="loginFormControl.email.touched && loginFormControl.email.errors?.email">
+                 Digite um endereço de e-mail válido
+             </span>
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+		</div>
+		<select class="form-control" formControlName="occupation">
+			<option selected="">Profissão</option>
+			<option>Estudante</option>
+			<option>Desenvolvedor</option>
+			<option>Designer</option>
+        </select>
+        
+	</div> <!-- form-group end.// -->
+    <span class="text-danger"
+                 *ngIf="(loginFormControl.occupation.touched ) && loginFormControl.occupation.errors?.required">
+                 Por favor, selecione sua profissão.
+             </span>
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        <input class="form-control" placeholder="Senha" type="password" formControlName="password">
+    </div> <!-- form-group// -->
+    <span class="text-danger"
+                 *ngIf="(loginFormControl.password.touched ) && loginFormControl.password.errors?.required">
+                 A senha é obrigatória
+             </span>
+             <span class="text-danger"
+                 *ngIf="loginFormControl.password.touched && loginFormControl.password.errors?.minLength">
+                 A senha deve ter mais de 6 caractéres
+             </span>
+             <span class="text-danger" *ngIf="error">
+                {{error}}
+             </span>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block"> Criar  </button>
+    </div> <!-- form-group// -->      
+    <p class="text-center">Tem conta? <a href="">Entre</a> </p>                                                                 
+</form>
+</article>
+</div> <!-- card.// -->
+
+</div> 
+<!--container end.//-->
+
